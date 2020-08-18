@@ -1,11 +1,8 @@
 package com.freemanpivo.hexagonal.domain.usecase;
 
-
 import com.freemanpivo.hexagonal.domain.model.BankAccount;
 import com.freemanpivo.hexagonal.ports.inbound.DepositUseCase;
 import com.freemanpivo.hexagonal.ports.inbound.WithdrawUseCase;
-
-import java.math.BigDecimal;
 
 public class BankAccountService implements DepositUseCase, WithdrawUseCase {
     @Override
