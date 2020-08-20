@@ -6,11 +6,11 @@ import lombok.Data;
 @Data
 @AllArgsConstructor
 public class BankAccount {
-    private Long register;
+    private Long accountNumber;
     private Long balance; // treating currency as unit
 
     public boolean withdraw(Long amount) {
-        if (balance <= 0) {
+        if (balance - amount < 0) {
             return false;
         }
         this.setBalance(balance - amount);

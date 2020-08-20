@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.math.BigDecimal;
+import java.util.NoSuchElementException;
 
 @RestController
 @RequestMapping("/api/bank")
@@ -22,8 +23,12 @@ public class BankAccountController {
 
     @PostMapping(value = "{id}/deposit/{amount}")
     public ResponseEntity depositMoney(@PathVariable final Long id, @PathVariable final Long amount) {
-        depositUseCase.deposit(id, amount);
-        return new ResponseEntity(HttpStatus.OK);
+        try {
+            depositUseCase.deposit(id, amount);
+            return new ResponseEntity(HttpStatus.OK);
+        } catch (NoSuchElementException e) {
+            return new ResponseEntity("Error",HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
 
     @PostMapping(value = "{id}/withdraw/{amount}")
