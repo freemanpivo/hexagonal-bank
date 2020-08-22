@@ -1,6 +1,7 @@
 package com.freemanpivo.hexagonal.domain.usecase;
 
 import com.freemanpivo.hexagonal.domain.model.BankAccount;
+import com.freemanpivo.hexagonal.mysql.MySqlService;
 import com.freemanpivo.hexagonal.ports.inbound.DepositUseCase;
 import com.freemanpivo.hexagonal.ports.inbound.WithdrawUseCase;
 import com.freemanpivo.hexagonal.ports.outbound.Datastore;
